@@ -1,3 +1,1 @@
-export default function Other() {
-
-}
+export default function Other() {}

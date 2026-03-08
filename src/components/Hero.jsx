@@ -1,26 +1,20 @@
-import { Avatar, Typography, Stack, IconButton } from "@mui/material"
-import me from "../assets/me.png"
-import GitHubIcon from "@mui/icons-material/GitHub"
-import LinkedInIcon from "@mui/icons-material/LinkedIn"
-import InstagramIcon from "@mui/icons-material/Instagram"
+import { Avatar, Typography, Stack, IconButton } from '@mui/material'
+import me from '../assets/me.png'
+import GitHubIcon from '@mui/icons-material/GitHub'
+import LinkedInIcon from '@mui/icons-material/LinkedIn'
+import InstagramIcon from '@mui/icons-material/Instagram'
 
 export default function Hero() {
   return (
     <Stack spacing={3} alignItems="center">
+      <Avatar src={me} sx={{ width: 180, height: 180 }} />
 
-      <Avatar
-        src={me}
-        sx={{ width: 180, height: 180 }}
-      />
-
-      <Typography variant="h4">
-        Conor Wellman
-      </Typography>
+      <Typography variant="h4">Conor Wellman</Typography>
 
       <Typography variant="body1" textAlign="center">
-        Software engineer and mathematician from Colorado College.
-        Currently working at bet365 building AI Integrations, Observability Platforms, and Distributed Systems Applications
-        Previously worked at NIST and Connamara Technologies.
+        Software engineer and mathematician from Colorado College. Currently working at
+        bet365 building AI Integrations, Observability Platforms, and Distributed Systems
+        Applications Previously worked at NIST and Connamara Technologies.
       </Typography>
 
       <Stack direction="row" spacing={1}>
@@ -36,7 +30,6 @@ export default function Hero() {
           <InstagramIcon />
         </IconButton>
       </Stack>
-
     </Stack>
   )
 }
