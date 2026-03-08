@@ -117,7 +117,7 @@ jobs:
 
       - name: Deploy to Dev Bucket
         run: |
-          gsutil -m rsync -r -d dist gs://your-dev-bucket
+          gsutil -m rsync -r -d dist gs://${{ secrets.GCP_DEV_BUCKET }}
 
   deploy-prod:
     runs-on: ubuntu-latest
@@ -142,4 +142,4 @@ jobs:
 
       - name: Deploy to Production Bucket
         run: |
-          gsutil -m rsync -r -d dist gs://your-prod-bucket
+          gsutil -m rsync -r -d dist gs://${{ secrets.GCP_BUCKET }}
