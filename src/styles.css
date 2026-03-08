@@ -1,0 +1,47 @@
+body {
+  margin: 0;
+  font-family: system-ui;
+  background: #faf9f6;
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 20px;
+  background: #3EB489;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 60px;
+  align-items: center;
+}
+
+.project-grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.project-card {
+  border: 2px solid black;
+  padding: 20px;
+  border-radius: 10px;
+  transition: 0.2s;
+}
+
+.project-card:hover {
+  background: #3EB489;
+}
+
+@media (max-width: 768px) {
+
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+}

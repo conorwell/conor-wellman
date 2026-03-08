@@ -1,8 +1,25 @@
+import { ThemeProvider, createTheme, CssBaseline } from "@mui/material"
+import Home from "./pages/Home"
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#3EB489"
+    },
+    background: {
+      default: "#FAF9F6"
+    }
+  },
+  typography: {
+    fontFamily: "Inter, system-ui"
+  }
+})
+
 export default function App() {
   return (
-    <div style={{ fontFamily: "sans-serif", padding: "40px" }}>
-      <h1>Hello from Vite + React</h1>
-      <p>If you can see this, your deployment works.</p>
-    </div>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Home />
+    </ThemeProvider>
   )
 }
