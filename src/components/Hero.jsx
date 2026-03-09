@@ -1,32 +1,39 @@
-import { Avatar, Typography, Stack, IconButton } from '@mui/material'
-import me from '../assets/me.png'
+import { Typography, Stack, IconButton, Box } from '@mui/material'
 import GitHubIcon from '@mui/icons-material/GitHub'
 import LinkedInIcon from '@mui/icons-material/LinkedIn'
 import InstagramIcon from '@mui/icons-material/Instagram'
+import Typewriter from './Typewriter'
+
+const SPECIALTIES = ['Distributed Systems', 'AI Integration', 'Observability']
 
 export default function Hero() {
   return (
-    <Stack spacing={3} alignItems="center">
-      <Avatar src={me} sx={{ width: 180, height: 180 }} />
+    <Stack spacing={3} alignItems="left">
+      <Box sx={{ borderLeft: '3px solid', borderColor: 'primary.main', pl: 2 }}>
+        <Typography variant="h4" fontWeight={700}>
+          Conor Wellman
+        </Typography>
+        <Typography variant="body1" color="text.secondary">
+          Full Stack Engineer
+        </Typography>
+        <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>
+          Colorado College · Summa Cum Laude
+        </Typography>
+        <Typography variant="caption" color="text.secondary">
+          B.A. Computer Science & Mathematics
+        </Typography>
+      </Box>
 
-      <Typography variant="h4">Conor Wellman</Typography>
-
-      <Typography variant="body1" textAlign="center">
-        Software engineer and mathematician from Colorado College. Currently working at
-        bet365 building AI Integrations, Observability Platforms, and Distributed Systems
-        Applications Previously worked at NIST and Connamara Technologies.
-      </Typography>
+      <Typewriter strings={SPECIALTIES} />
 
       <Stack direction="row" spacing={1}>
-        <IconButton href="https://github.com/conorwell">
+        <IconButton color="primary" href="https://github.com/conorwell">
           <GitHubIcon />
         </IconButton>
-
-        <IconButton href="https://www.linkedin.com/in/conor-wellman-a70a93115/">
+        <IconButton color="primary" href="https://www.linkedin.com/in/conor-wellman-a70a93115/">
           <LinkedInIcon />
         </IconButton>
-
-        <IconButton href="https://www.instagram.com/conorwell/?hl=en">
+        <IconButton color="primary" href="https://www.instagram.com/conorwell/?hl=en">
           <InstagramIcon />
         </IconButton>
       </Stack>

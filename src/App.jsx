@@ -1,25 +1,17 @@
-import { ThemeProvider, createTheme, CssBaseline } from '@mui/material'
+import { useState } from 'react'
+import { ThemeProvider, CssBaseline } from '@mui/material'
+import { lightTheme, darkTheme } from './theme/theme'
 import Home from './pages/Home'
-
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: '#3EB489',
-    },
-    background: {
-      default: '#FAF9F6',
-    },
-  },
-  typography: {
-    fontFamily: 'Inter, system-ui',
-  },
-})
+import MouseGlow from './components/MouseGlow'
 
 export default function App() {
+  const [isDark, setIsDark] = useState(true)
+
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
       <CssBaseline />
-      <Home />
+      <MouseGlow />
+      <Home onToggleTheme={() => setIsDark((d) => !d)} isDark={isDark} />
     </ThemeProvider>
   )
 }
