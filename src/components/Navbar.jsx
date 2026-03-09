@@ -15,6 +15,9 @@ export default function Navbar({ onToggleTheme, isDark }) {
           Experience
         </Button>
         <Button color="inherit" href="#other">
+          Math
+        </Button>
+        <Button color="inherit" href="#other">
           Other
         </Button>
 
