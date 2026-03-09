@@ -1,4 +1,4 @@
-import { Card, CardContent, Typography } from '@mui/material'
+import { Card, CardActionArea, CardContent, Typography } from '@mui/material'
 
 type ProjectCardProps = {
   title: string
@@ -9,11 +9,12 @@ type ProjectCardProps = {
 export default function ProjectCard({ title, description, link }: ProjectCardProps) {
   return (
     <Card>
-      <CardContent>
-        <Typography variant="h6">{title}</Typography>
-        <Typography variant="body2">{description}</Typography>
-        <Typography variant="body2">{link}</Typography>
-      </CardContent>
+      <CardActionArea href={link} target="_blank" rel="noopener noreferrer">
+        <CardContent>
+          <Typography variant="h6">{title}</Typography>
+          <Typography variant="body2">{description}</Typography>
+        </CardContent>
+      </CardActionArea>
     </Card>
   )
 }

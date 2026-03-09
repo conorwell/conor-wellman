@@ -1,28 +1,41 @@
-import { Container, Grid } from '@mui/material'
+import { Box, Toolbar } from '@mui/material'
 import Navbar from '../components/Navbar'
 import Hero from '../components/Hero'
-import Projects from '../components/Projects'
 import Experience from '../components/Experience'
-import Other from '../components/Other'
 
-export default function Home() {
+export default function Home({ onToggleTheme, isDark }) {
   return (
-    <>
-      <Navbar />
+    <Box sx={{ display: 'flex', flexDirection: 'column', height: '100vh' }}>
+      <Navbar onToggleTheme={onToggleTheme} isDark={isDark} />
+      <Toolbar />
 
-      <Container maxWidth="lg" sx={{ mt: 10 }}>
-        <Grid container spacing={6}>
-          <Grid item xs={12} md={4}>
-            <Hero />
-          </Grid>
+      <Box sx={{ display: 'flex', flex: 1, overflow: 'hidden' }}>
+        {/* Left — static */}
+        <Box
+          sx={{
+            width: { xs: '100%', md: '40%' },
+            flexShrink: 0,
+            display: 'flex',
+            alignItems: 'flex-start',
+            p: { xs: 4, md: 6 },
+          }}
+        >
+          <Hero />
+        </Box>
 
-          <Grid item xs={12} md={8}>
-            <Projects />
-            <Experience />
-            <Other />
-          </Grid>
-        </Grid>
-      </Container>
-    </>
+        {/* Right — scrollable */}
+        <Box
+          sx={{
+            flex: 1,
+            overflowY: 'auto',
+            p: { xs: 4, md: 6 },
+            borderLeft: '1px solid',
+            borderColor: 'divider',
+          }}
+        >
+          <Experience />
+        </Box>
+      </Box>
+    </Box>
   )
 }
