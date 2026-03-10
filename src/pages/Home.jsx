@@ -5,11 +5,19 @@ import Experience from '../components/Experience'
 
 export default function Home({ onToggleTheme, isDark }) {
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column', height: '100vh' }}>
+    <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       <Navbar onToggleTheme={onToggleTheme} isDark={isDark} />
       <Toolbar />
 
-      <Box sx={{ display: 'flex', flex: 1, overflow: 'hidden' }}>
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: { xs: 'column', md: 'row' },
+          flex: 1,
+          overflow: { xs: 'visible', md: 'hidden' },
+          height: { md: 'calc(100vh - 64px)' },
+        }}
+      >
         {/* Left — static */}
         <Box
           sx={{
@@ -23,13 +31,14 @@ export default function Home({ onToggleTheme, isDark }) {
           <Hero />
         </Box>
 
-        {/* Right — scrollable */}
+        {/* Right — scrollable on desktop, natural flow on mobile */}
         <Box
           sx={{
             flex: 1,
-            overflowY: 'auto',
+            overflowY: { xs: 'visible', md: 'auto' },
             p: { xs: 4, md: 6 },
-            borderLeft: '1px solid',
+            borderLeft: { xs: 'none', md: '1px solid' },
+            borderTop: { xs: '1px solid', md: 'none' },
             borderColor: 'divider',
           }}
         >
