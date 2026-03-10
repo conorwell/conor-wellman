@@ -126,7 +126,7 @@ jobs:
       - name: Deploy to Dev Bucket
         run: |
           gsutil -m rsync -r -d dist gs://${{ secrets.GCP_DEV_BUCKET }}
-          gsutil setmeta -h "Cache-Control:no-cache, no-store, must-revalidate" gs://${{ secrets.GCP_DEV_BUCKET }}/index.html
+          gsutil cp -h "Cache-Control:no-cache, no-store, must-revalidate" dist/index.html gs://${{ secrets.GCP_DEV_BUCKET }}/index.html
 
   deploy-prod:
     runs-on: ubuntu-latest
