@@ -37,10 +37,9 @@ export default function Experience() {
                 pb: 4,
                 px: 1.5,
                 width: '100%',
-                transition: 'background-color 0.4s ease',
+                transition: 'background-color 0.15s ease',
                 '&:hover': {
-                  bgcolor: (theme) =>
-                    theme.palette.mode === 'dark' ? 'primary.dark' : 'primary.light',
+                  bgcolor: '',
                 },
               }}
             >
@@ -64,19 +63,6 @@ export default function Experience() {
                   <Typography key={j} component="li" variant="body2" color="text.secondary">
                     {h}
                   </Typography>
-                ))}
-              </Stack>
-
-              <Stack direction="row" flexWrap="wrap" gap={0.75} sx={{ mt: 1.5 }}>
-                {exp.skills.map((skill) => (
-                  <Chip
-                    key={skill}
-                    label={skill}
-                    size="small"
-                    variant="outlined"
-                    color="primary"
-                    sx={{ fontSize: '0.7rem' }}
-                  />
                 ))}
               </Stack>
             </ButtonBase>
