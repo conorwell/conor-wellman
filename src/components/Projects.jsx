@@ -1,21 +1,24 @@
-import { Typography, Grid } from '@mui/material'
+import { Typography, Grid, Box } from '@mui/material'
+import FeaturedProject from './FeaturedProject'
 import ProjectCard from './ProjectCard'
-import projects from '../data/projects'
+import { cards } from '../data/projects'
 
 export default function Projects() {
   return (
-    <section id="projects">
-      <Typography variant="h4" gutterBottom>
+    <Box component="section" id="projects" sx={{ mt: 6, scrollMarginTop: '80px' }}>
+      <Typography variant="h4" gutterBottom sx={{ mb: 3 }}>
         Projects
       </Typography>
 
-      <Grid container spacing={3}>
-        {projects.map((p) => (
-          <Grid item xs={12} md={6} key={p.title}>
+      <FeaturedProject />
+
+      <Grid container spacing={2}>
+        {cards.map((p) => (
+          <Grid item xs={12} key={p.title}>
             <ProjectCard {...p} />
           </Grid>
         ))}
       </Grid>
-    </section>
+    </Box>
   )
 }

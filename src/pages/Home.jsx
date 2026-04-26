@@ -1,12 +1,20 @@
+import { useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import { Box, Toolbar } from '@mui/material'
-import Navbar from '../components/Navbar'
 import Hero from '../components/Hero'
 import Experience from '../components/Experience'
+import Projects from '../components/Projects'
 
-export default function Home({ onToggleTheme, isDark }) {
+export default function Home() {
+  const { hash } = useLocation()
+
+  useEffect(() => {
+    if (!hash) return
+    const el = document.querySelector(hash)
+    if (el) el.scrollIntoView({ behavior: 'smooth' })
+  }, [hash])
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-      <Navbar onToggleTheme={onToggleTheme} isDark={isDark} />
       <Toolbar />
 
       <Box
@@ -14,15 +22,17 @@ export default function Home({ onToggleTheme, isDark }) {
           display: 'flex',
           flexDirection: { xs: 'column', md: 'row' },
           flex: 1,
-          overflow: { xs: 'visible', md: 'hidden' },
-          height: { md: 'calc(100vh - 64px)' },
+          alignItems: 'flex-start',
         }}
       >
-        {/* Left — static */}
+        {/* Left — sticky */}
         <Box
           sx={{
-            width: { xs: '100%', md: '40%' },
+            width: { xs: '100%', md: '32%' },
             flexShrink: 0,
+            position: { md: 'sticky' },
+            top: { md: '64px' },
+            height: { md: 'calc(100vh - 64px)' },
             display: 'flex',
             alignItems: 'flex-start',
             p: { xs: 4, md: 6 },
@@ -31,11 +41,10 @@ export default function Home({ onToggleTheme, isDark }) {
           <Hero />
         </Box>
 
-        {/* Right — scrollable on desktop, natural flow on mobile */}
+        {/* Right — natural scroll */}
         <Box
           sx={{
             flex: 1,
-            overflowY: { xs: 'visible', md: 'auto' },
             p: { xs: 4, md: 6 },
             borderLeft: { xs: 'none', md: '1px solid' },
             borderTop: { xs: '1px solid', md: 'none' },
@@ -43,6 +52,7 @@ export default function Home({ onToggleTheme, isDark }) {
           }}
         >
           <Experience />
+          <Projects />
         </Box>
       </Box>
     </Box>

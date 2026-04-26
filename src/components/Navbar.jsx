@@ -16,23 +16,33 @@ import {
 import LightModeIcon from '@mui/icons-material/LightMode'
 import DarkModeIcon from '@mui/icons-material/DarkMode'
 import MenuIcon from '@mui/icons-material/Menu'
+import { Link, useLocation } from 'react-router-dom'
 
 const NAV_LINKS = [
-  { label: 'Projects', href: '#projects' },
-  { label: 'Experience', href: '#experience' },
-  { label: 'Math', href: '#other' },
-  { label: 'Other', href: '#other' },
+  { label: 'Experience', to: '/#experience' },
+  { label: 'Projects', to: '/#projects' },
+  { label: 'Climbing', to: '/climbing' },
 ]
 
 export default function Navbar({ onToggleTheme, isDark }) {
   const theme = useTheme()
   const isMobile = useMediaQuery(theme.breakpoints.down('md'))
   const [drawerOpen, setDrawerOpen] = useState(false)
+  const { pathname } = useLocation()
 
   return (
     <AppBar position="fixed" color="primary" sx={{ bgcolor: 'primary.main' }}>
       <Toolbar>
-        <Box sx={{ flexGrow: 1 }} />
+        <Box sx={{ flexGrow: 1 }}>
+          <Button
+            color="inherit"
+            component={Link}
+            to="/"
+            sx={{ fontWeight: 700, fontSize: '1rem', textTransform: 'none' }}
+          >
+            Conor Wellman
+          </Button>
+        </Box>
 
         {isMobile ? (
           <>
@@ -44,9 +54,13 @@ export default function Navbar({ onToggleTheme, isDark }) {
             </IconButton>
             <Drawer anchor="right" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
               <List sx={{ width: 200, pt: 2 }}>
-                {NAV_LINKS.map(({ label, href }) => (
+                {NAV_LINKS.map(({ label, to }) => (
                   <ListItem key={label} disablePadding>
-                    <ListItemButton component="a" href={href} onClick={() => setDrawerOpen(false)}>
+                    <ListItemButton
+                      component={Link}
+                      to={to}
+                      onClick={() => setDrawerOpen(false)}
+                    >
                       <ListItemText primary={label} />
                     </ListItemButton>
                   </ListItem>
@@ -56,8 +70,19 @@ export default function Navbar({ onToggleTheme, isDark }) {
           </>
         ) : (
           <>
-            {NAV_LINKS.map(({ label, href }) => (
-              <Button key={label} color="inherit" href={href}>
+            {NAV_LINKS.map(({ label, to }) => (
+              <Button
+                key={label}
+                color="inherit"
+                component={Link}
+                to={to}
+                sx={{
+                  fontWeight: pathname === to ? 700 : 400,
+                  borderBottom: pathname === to ? '2px solid' : '2px solid transparent',
+                  borderRadius: 0,
+                  pb: '2px',
+                }}
+              >
                 {label}
               </Button>
             ))}

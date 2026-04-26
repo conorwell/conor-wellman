@@ -3,7 +3,7 @@ import experiences from '../data/experiences'
 
 export default function Experience() {
   return (
-    <section id="experience">
+    <section id="experience" style={{ scrollMarginTop: '80px' }}>
       <Typography variant="h4" gutterBottom>
         Experience
       </Typography>
