@@ -29,11 +29,11 @@ export default function Hero() {
       <Typewriter strings={SPECIALTIES} />
 
       <Typography variant="body2" color="text.secondary" sx={{ maxWidth: 360 }}>
-        I'm a software engineer with a background in mathematics, drawn to problems that require
+        I&apos;m a software engineer with a background in mathematics, drawn to problems that require
         deep thinking and reward intellectual collaboration. I studied Computer Science and
         Mathematics at Colorado College, where I discovered a new family of minimal surfaces.
         These days I work at bet365 on distributed trading systems, site reliability, and
-        observability. I'm looking for roles where the hard problems are the job,
+        observability. I&apos;m looking for roles where the hard problems are the job,
         not the exception.
       </Typography>
 
