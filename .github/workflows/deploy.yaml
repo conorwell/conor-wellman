@@ -103,40 +103,24 @@ jobs:
     needs: build
     if: github.ref == 'refs/heads/dev'
 
-    permissions:
-      contents: read
-      id-token: write
-
     steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
       - name: Download Build Artifact
         uses: actions/download-artifact@v4
         with:
           name: site-build
           path: dist
 
-      - name: Authenticate GCP
-        uses: google-github-actions/auth@v2
-        with:
-          workload_identity_provider: ${{ secrets.GCP_WORKLOAD_PROVIDER }}
-          service_account: ${{ secrets.GCP_SERVICE_ACCOUNT }}
-
-      - name: Setup gcloud
-        uses: google-github-actions/setup-gcloud@v2
-
-      - name: Deploy to Dev Bucket
-        run: |
-          gsutil -m rsync -r -d dist gs://${{ secrets.GCP_DEV_BUCKET }}
-          gsutil cp -h "Cache-Control:no-cache, no-store, must-revalidate" dist/index.html gs://${{ secrets.GCP_DEV_BUCKET }}/index.html
+      - name: Deploy to Firebase Preview Channel
+        run: npx firebase-tools hosting:channel:deploy dev --token ${{ secrets.FIREBASE_TOKEN }} --non-interactive
 
   deploy-prod:
     runs-on: ubuntu-latest
     needs: build
     if: github.ref == 'refs/heads/main'
 
-    permissions:
-      contents: read
-      id-token: write
-
     steps:
       - name: Download Build Artifact
         uses: actions/download-artifact@v4
@@ -144,16 +128,5 @@ jobs:
           name: site-build
           path: dist
 
-      - name: Authenticate GCP
-        uses: google-github-actions/auth@v2
-        with:
-          workload_identity_provider: ${{ secrets.GCP_WORKLOAD_PROVIDER }}
-          service_account: ${{ secrets.GCP_SERVICE_ACCOUNT }}
-
-      - name: Setup gcloud
-        uses: google-github-actions/setup-gcloud@v2
-
-      - name: Deploy to Production Bucket
-        run: |
-          gsutil -m rsync -r -d dist gs://${{ secrets.GCP_BUCKET }}
-          gsutil cp -h "Cache-Control:no-cache, no-store, must-revalidate" gs://${{ secrets.GCP_BUCKET }}/index.html
+      - name: Deploy to Firebase Hosting
+        run: npx firebase-tools deploy --only hosting --token ${{ secrets.FIREBASE_TOKEN }} --non-interactive

@@ -15,13 +15,6 @@ export const featured = {
 
 export const cards = [
   {
-    title: 'SmartBettor Trends',
-    description:
-      'Surfaces hot bets matching user filters by finding trends in historical sports betting data across hit rates, player matchups, and team stats.',
-    link: 'https://www.smartbettor.ai/trends',
-    tech: ['React', 'TypeScript', 'Python', 'SQL'],
-  },
-  {
     title: 'Neural Traveling Salesperson Solver',
     description:
       'Neural ant colony optimization using a transformer to pre-place pheromone, reducing runtime by 25% while maintaining accuracy.',
@@ -32,7 +25,7 @@ export const cards = [
     title: '8a.nu Softness Calculator',
     description:
       'REST API scoring climbers\' grading tendencies using 8a.nu data — tracking each user\'s likelihood to suggest harder or easier grades than the community average.',
-    link: 'https://github.com/conorwell/8aSoftnessIndex/tree/main/src',
+    link: 'https://github.com/conorwell/8aSoftnessIndex',
     tech: ['Python', 'Flask'],
   },
 ]

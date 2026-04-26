@@ -5,7 +5,7 @@ import { cards } from '../data/projects'
 
 export default function Projects() {
   return (
-    <Box component="section" id="projects" sx={{ mt: 6 }}>
+    <Box component="section" id="projects" sx={{ mt: 6, scrollMarginTop: '80px' }}>
       <Typography variant="h4" gutterBottom sx={{ mb: 3 }}>
         Projects
       </Typography>

@@ -1,13 +1,20 @@
+import { useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import { Box, Toolbar } from '@mui/material'
-import Navbar from '../components/Navbar'
 import Hero from '../components/Hero'
 import Experience from '../components/Experience'
 import Projects from '../components/Projects'
 
-export default function Home({ onToggleTheme, isDark }) {
+export default function Home() {
+  const { hash } = useLocation()
+
+  useEffect(() => {
+    if (!hash) return
+    const el = document.querySelector(hash)
+    if (el) el.scrollIntoView({ behavior: 'smooth' })
+  }, [hash])
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-      <Navbar onToggleTheme={onToggleTheme} isDark={isDark} />
       <Toolbar />
 
       <Box
