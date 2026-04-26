@@ -4,7 +4,7 @@ export const featured = {
   description:
     'Board Lord takes a Tension Board 2 problem\'s hold layout and board angle and predicts its V-grade using a CNN trained on community-graded problems. The model uses 2D spatial grid encoding, a learned angle embedding, and a combined Earth Mover\'s Distance + Cross-Entropy loss for ordinal aware grade prediction, achieving 0.53 MAE in 10-fold cross-validation.',
   liveUrl: 'https://boardlord.app',
-  screenshot: 'src/assets/Boardlord.png',
+  screenshot: '/Boardlord.png',
   repos: [
     { label: 'Model', url: 'https://github.com/conorwell/BoardLord-AI-Model' },
     { label: 'Model Service', url: 'https://github.com/conorwell/BoardLord-AI-Model-Service' },

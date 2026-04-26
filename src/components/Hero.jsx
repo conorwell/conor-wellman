@@ -33,8 +33,7 @@ export default function Hero() {
         deep thinking and reward intellectual collaboration. I studied Computer Science and
         Mathematics at Colorado College, where I discovered a new family of minimal surfaces.
         These days I work at bet365 on distributed trading systems, site reliability, and
-        observability. I&apos;m looking for roles where the hard problems are the job,
-        not the exception.
+        observability.
       </Typography>
 
       <Typography variant="body2" color="text.secondary" sx={{ maxWidth: 360 }}>
