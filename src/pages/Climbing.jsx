@@ -37,7 +37,7 @@ export default function Climbing() {
               Climbing
             </Typography>
             <Typography variant="body1" color="text.secondary">
-              Outside of engineering, I&apos;m often focused on my climbing career. I&apos;ve competed in national finals for lead climbing and bouldering, earning an alternate spot on the US Team and an invitation to world championships. Outdoors, I have climbed routes up to V14 and 5.14, my proudest being &ldquo;The Multiverse&rdquo; (V14) and &ldquo;The Phoenix&rdquo; (V14). I am the first male from Illinois and first climber with T1D to ascend boulders of this difficulty.
+              Outside of engineering, I&apos;m often focused on my climbing career. I&apos;ve competed in national finals for lead climbing and bouldering, earning an alternate spot on the US Team and an invitation to world championships. Outdoors, I have climbed routes up to V14 and 5.14, my proudest being &ldquo;The Multiverse&rdquo; (V14) and &ldquo;The Phoenix&rdquo; (V14). I am the first male from Illinois and first climber with Type 1 Diabetes to ascend multiple boulders of this difficulty.
             </Typography>
           </Box>
           <Divider />

@@ -6,7 +6,11 @@ import DownloadIcon from '@mui/icons-material/Download'
 import Typewriter from './Typewriter'
 import resume from '../assets/resume.pdf'
 
-const SPECIALTIES = ['Distributed Systems', 'AI Integration', 'Alerting + Observability']
+const SPECIALTIES = [
+  'Production AI Agents',
+  'Full-Stack & Infrastructure Engineering',
+  'Distributed Systems',
+]
 
 export default function Hero() {
   return (
@@ -16,10 +20,10 @@ export default function Hero() {
           Conor Wellman
         </Typography>
         <Typography variant="body1" color="text.secondary">
-          Full Stack Engineer
+          Full-Stack & Infrastructure Engineer
         </Typography>
         <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>
-          Colorado College 2025 · Summa Cum Laude
+          Colorado College 2025 · 4.00 GPA · Summa Cum Laude · Phi Beta Kappa
         </Typography>
         <Typography variant="caption" color="text.secondary">
           B.A. Computer Science & Mathematics
@@ -29,11 +33,11 @@ export default function Hero() {
       <Typewriter strings={SPECIALTIES} />
 
       <Typography variant="body2" color="text.secondary" sx={{ maxWidth: 360 }}>
-        I&apos;m a software engineer with a background in mathematics, drawn to problems that require
-        deep thinking and reward intellectual collaboration. I studied Computer Science and
-        Mathematics at Colorado College, where I discovered a new family of minimal surfaces.
-        These days I work at bet365 on distributed trading systems, site reliability, and
-        observability.
+        I&apos;m a software engineer with a background in mathematics, drawn to problems
+        that require deep thinking and reward intellectual collaboration. I studied
+        Computer Science and Mathematics at Colorado College. These days I work at bet365,
+        building production AI agents for on-call incident response, automated
+        remediation, and eval suites on top of distributed trading infrastructure.
       </Typography>
 
       <Typography variant="body2" color="text.secondary" sx={{ maxWidth: 360 }}>
@@ -44,7 +48,10 @@ export default function Hero() {
         <IconButton color="primary" href="https://github.com/conorwell">
           <GitHubIcon />
         </IconButton>
-        <IconButton color="primary" href="https://www.linkedin.com/in/conor-wellman-a70a93115/">
+        <IconButton
+          color="primary"
+          href="https://www.linkedin.com/in/conor-wellman-a70a93115/"
+        >
           <LinkedInIcon />
         </IconButton>
         <IconButton color="primary" href="mailto:conwellman@gmail.com">
